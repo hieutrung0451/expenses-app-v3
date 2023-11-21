@@ -60,7 +60,6 @@ class App extends Component {
       ],
       filter: {
         year: '2023',
-        month: null,
       },
       listExpenseAfterFilter: [],
     };
@@ -85,6 +84,21 @@ class App extends Component {
     });
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.expenses !== prevState.expenses) {
+      let listExpense = this.getListExp(
+        this.state.expenses,
+        this.state.filter.year
+      );
+
+      this.setState({
+        ...this.state,
+
+        listExpenseAfterFilter: listExpense,
+      });
+    }
+  }
+
   addExpenseHandler(expense) {
     this.setState({
       expenses: [expense, ...this.state.expenses],
@@ -104,16 +118,6 @@ class App extends Component {
       },
     });
   }
-
-  // setExpenesWithMonth(month) {
-  //   this.setState({
-  //     ...this.state,
-  //     filter: {
-  //       ...this.state.filter,
-  //       month,
-  //     },
-  //   });
-  // }
 
   render() {
     return (
