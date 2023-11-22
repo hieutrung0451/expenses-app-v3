@@ -5,6 +5,10 @@ import ChartBar from './ChartBar';
 import './Chart.css';
 
 class Chart extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   dataPointValues = this.props.dataPoints.map((dataPoint) => dataPoint.value);
 
   totalMaximum = Math.max(...this.dataPointValues);
@@ -16,7 +20,7 @@ class Chart extends Component {
           <ChartBar
             key={dataPoint.label}
             value={dataPoint.value}
-            maxValue={this.totalMaximum}
+            maxValue={1000}
             label={dataPoint.label}
           />
         ))}
