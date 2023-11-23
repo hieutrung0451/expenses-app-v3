@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { connect } from 'react-redux';
 
 import Chart from '../Chart/Chart';
 
@@ -33,4 +34,10 @@ class ExpensesChart extends Component {
   }
 }
 
-export default ExpensesChart;
+const mapStateToProps = (state) => ({
+  expenses: state.expenses,
+});
+
+const mapDispatchToProps = (dispatch) => ({});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ExpensesChart);

@@ -33,6 +33,17 @@ class ExpensesList extends Component {
     this.props.filter_expense(newExpense);
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.expenses !== prevProps.expenses) {
+      let listExpense = this.getListExp(
+        this.props.expenses,
+        this.props.filter.year
+      );
+
+      this.props.filter_expense(listExpense);
+    }
+  }
+
   render() {
     console.log(this.props.listExpenseAfterFilter);
     return (
