@@ -24,7 +24,7 @@ class ExpensesChart extends Component {
       { label: 'Dec', value: 0 },
     ];
 
-    for (const expense of this.props.expenses) {
+    for (const expense of this.props.listExpenseAfterFilter) {
       const expenseMonth = expense.date.getMonth();
 
       chartDataPoints[expenseMonth].value += expense.amount;
@@ -36,6 +36,7 @@ class ExpensesChart extends Component {
 
 const mapStateToProps = (state) => ({
   expenses: state.expenses,
+  listExpenseAfterFilter: state.listExpenseAfterFilter,
 });
 
 const mapDispatchToProps = (dispatch) => ({});

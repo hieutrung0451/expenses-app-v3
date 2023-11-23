@@ -6,15 +6,15 @@ import ExpensesList from './ExpensesList';
 import './Expenses.css';
 
 class Expenses extends Component {
-  constructor(props) {
-    super(props);
+  // constructor(props) {
+  //   super(props);
 
-    this.filterChangeHandler = this.filterChangeHandler.bind(this);
-  }
+  //   this.filterChangeHandler = this.filterChangeHandler.bind(this);
+  // }
 
-  filterChangeHandler(selectYear) {
-    this.props.setExpenesWithYear(selectYear);
-  }
+  // filterChangeHandler(selectYear) {
+  //   this.props.setExpenesWithYear(selectYear);
+  // }
 
   render() {
     return (

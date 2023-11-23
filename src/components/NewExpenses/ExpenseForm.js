@@ -54,12 +54,12 @@ class ExpenseForm extends Component {
     // this.props.onSaveExpenseData(newExpense);
 
     this.props.add_new_expense(newExpense);
-    // this.setState({
-    //   ...this.state,
-    //   enteredTitle: '',
-    //   enteredAmount: '',
-    //   enteredDate: '',
-    // });
+    this.setState({
+      ...this.state,
+      enteredTitle: '',
+      enteredAmount: '',
+      enteredDate: '',
+    });
   }
 
   render() {
