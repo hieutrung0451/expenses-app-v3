@@ -6,7 +6,6 @@ class ChartBar extends Component {
   barFillHeight = '0%';
 
   render() {
-    console.log(this.props.maxValue);
     if (this.props.maxValue > 0) {
       this.barFillHeight =
         Math.round((this.props.value / this.props.maxValue) * 100) + '%';

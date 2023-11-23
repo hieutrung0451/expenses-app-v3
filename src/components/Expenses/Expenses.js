@@ -20,11 +20,12 @@ class Expenses extends Component {
     return (
       <div className='expenses'>
         <ExpensesFilter
-          selected={this.props.filter.year}
-          onChangeFilter={this.filterChangeHandler}
+        // selected={this.props.filter.year}
+        // onChangeFilter={this.filterChangeHandler}
         />
         <ExpensesChart expenses={this.props.expenses} />
-        <ExpensesList expenses={this.props.expenses} />
+        <ExpensesList />
+        {/* <ExpensesList expenses={this.props.expenses} /> */}
       </div>
     );
   }

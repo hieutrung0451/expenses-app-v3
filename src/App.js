@@ -1,5 +1,7 @@
 import { Component } from 'react';
+import { Provider } from 'react-redux';
 
+import store from './store';
 import NewExpenses from './components/NewExpenses/NewExpenses';
 import Expenses from './components/Expenses/Expenses';
 
@@ -94,14 +96,14 @@ class App extends Component {
 
   render() {
     return (
-      <>
+      <Provider store={store}>
         <NewExpenses onAddExpense={this.addExpenseHandler} />
         <Expenses
           expenses={this.state.listExpenseAfterFilter}
           filter={this.state.filter}
           setExpenesWithYear={this.setExpenesWithYear}
         />
-      </>
+      </Provider>
     );
   }
 }

@@ -3,16 +3,20 @@ import { Component } from 'react';
 import './ExpenseDate.css';
 
 class ExpenseDate extends Component {
-  day = this.props.date.toLocaleString('en-US', { day: '2-digit' });
-  month = this.props.date.toLocaleString('en-US', { month: 'long' });
-  year = this.props.date.getFullYear();
+  constructor(props) {
+    super(props);
+  }
 
   render() {
+    const day = this.props.date.toLocaleString('en-US', { day: '2-digit' });
+    const month = this.props.date.toLocaleString('en-US', { month: 'long' });
+    const year = this.props.date.getFullYear();
+
     return (
       <div className='expense-date'>
-        <div className='expense-date__month'>{this.month}</div>
-        <div className='expense-date__year'>{this.year}</div>
-        <div className='expense-date__day'>{this.day}</div>
+        <div className='expense-date__month'>{month}</div>
+        <div className='expense-date__year'>{year}</div>
+        <div className='expense-date__day'>{day}</div>
       </div>
     );
   }

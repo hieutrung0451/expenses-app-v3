@@ -1,4 +1,6 @@
 import { Component } from 'react';
+import { connect } from 'react-redux';
+import { add_new_expense, filter_expense } from '../../actions/expenseAction';
 
 import './ExpenseForm.css';
 
@@ -37,26 +39,27 @@ class ExpenseForm extends Component {
       ...this.state,
       enteredDate: event.target.value,
     });
-    console.log(event.target.value);
   }
 
   submitHandler(event) {
     event.preventDefault();
 
     const newExpense = {
+      id: Math.random().toString(),
       title: this.state.enteredTitle,
       amount: this.state.enteredAmount,
       date: new Date(this.state.enteredDate),
     };
 
-    this.props.onSaveExpenseData(newExpense);
+    // this.props.onSaveExpenseData(newExpense);
 
-    this.setState({
-      ...this.state,
-      enteredTitle: '',
-      enteredAmount: '',
-      enteredDate: '',
-    });
+    this.props.add_new_expense(newExpense);
+    // this.setState({
+    //   ...this.state,
+    //   enteredTitle: '',
+    //   enteredAmount: '',
+    //   enteredDate: '',
+    // });
   }
 
   render() {
@@ -100,4 +103,14 @@ class ExpenseForm extends Component {
   }
 }
 
-export default ExpenseForm;
+const mapStateToProps = (state) => ({
+  expenses: state.listExpense,
+  listExpenseAfterFilter: state.listExpenseAfterFilter,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  add_new_expense: (payload) => dispatch(add_new_expense(payload)),
+  filter_expense: (payload) => dispatch(filter_expense(payload)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ExpenseForm);

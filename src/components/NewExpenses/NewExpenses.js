@@ -22,7 +22,8 @@ class NewExpenses extends Component {
   render() {
     return (
       <div className='new-expense'>
-        <ExpenseForm onSaveExpenseData={this.onSaveExpenseDataHandler} />
+        <ExpenseForm />
+        {/* <ExpenseForm onSaveExpenseData={this.onSaveExpenseDataHandler} /> */}
       </div>
     );
   }
