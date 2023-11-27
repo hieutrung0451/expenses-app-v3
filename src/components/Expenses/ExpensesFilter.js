@@ -25,7 +25,7 @@ class ExpensesFilter extends Component {
       event.target.value
     );
 
-    this.props.filter_year(event.target.value);
+    this.props.filter_year({ year: event.target.value });
     this.props.filter_expense(listExpense);
   };
 
@@ -35,7 +35,7 @@ class ExpensesFilter extends Component {
         <div className='expenses-filter__control'>
           <label>Filter by year</label>
           <select
-            value={this.props.filter}
+            value={this.props.filter.year}
             onChange={this.dropdownChangeHandler}
           >
             <option value='2023'>2023</option>
